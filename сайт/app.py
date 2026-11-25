@@ -1,5 +1,6 @@
 
-from http.server import HTTPServer, BaseHTTPRequestHandler
+from flask import Flask, Response
+import os
 
 HTML = r"""
 <!DOCTYPE html>
@@ -632,9 +633,6 @@ loadQuestion();
 </html>
 """
 
-
-from flask import Flask, Response
-import os
 
 app = Flask(__name__)
 
