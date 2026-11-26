@@ -131,9 +131,22 @@ h1 {
     cursor: default;
 }
 
-.answer.selected {
+.answer.selected-green {
     border-color: #4de4a0;
     background: #12533f;
+    box-shadow: 0 0 14px rgba(77, 228, 160, 0.18);
+}
+
+.answer.selected-yellow {
+    border-color: #ffd166;
+    background: #665016;
+    box-shadow: 0 0 14px rgba(255, 209, 102, 0.16);
+}
+
+.answer.selected-red {
+    border-color: #ff6b7a;
+    background: #651f2b;
+    box-shadow: 0 0 14px rgba(255, 107, 122, 0.16);
 }
 
 .feedback {
@@ -515,7 +528,13 @@ function checkAnswer(index) {
         button.disabled = true;
 
         if (i === index) {
-            button.classList.add("selected");
+            if (earned === 2) {
+                button.classList.add("selected-green");
+            } else if (earned === 1) {
+                button.classList.add("selected-yellow");
+            } else {
+                button.classList.add("selected-red");
+            }
         }
 
     });
